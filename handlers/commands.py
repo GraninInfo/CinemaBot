@@ -15,7 +15,6 @@ def case_for_number(number: int):
         return 'раза'
 
 
-
 @router.message(Command('start'))
 async def cmd_start(message: Message):
     await message.answer(
@@ -41,10 +40,10 @@ async def cmd_start(message: Message):
 
 @router.message(Command('history'))
 async def cmd_history(message: Message):
-    conn = sqlite3.connect('requests.db')
+    conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
-    cur.execute(f"SELECT * FROM requests "
+    cur.execute(f"SELECT * FROM queries "
                 f"WHERE userid = {message.from_user.id};")
     all_results = cur.fetchall()
 
@@ -52,7 +51,7 @@ async def cmd_history(message: Message):
         to_answer = 'Список ваших последних запросов(от более поздних к более ранним):\n'
         all_results.reverse()
         for request, _ in zip(all_results, range(10)):
-            to_answer += f'{request[2]}\n'
+            to_answer += f'{request[1]}\n'
 
         await message.answer(to_answer[:-1])
     else:
@@ -61,17 +60,17 @@ async def cmd_history(message: Message):
 
 @router.message(Command('allhistory'))
 async def cmd_all_history(message: Message):
-    conn = sqlite3.connect('requests.db')
+    conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
-    cur.execute(f"SELECT * FROM requests "
+    cur.execute(f"SELECT * FROM queries "
                 f"WHERE userid = {message.from_user.id};")
     all_results = cur.fetchall()
 
     if all_results:
         to_answer = 'Список ваших запросов(от более ранних к более поздним):\n'
         for request in all_results:
-            to_answer += f'{request[2]}\n'
+            to_answer += f'{request[1]}\n'
 
         await message.answer(to_answer[:-1])
     else:
@@ -80,10 +79,10 @@ async def cmd_all_history(message: Message):
 
 @router.message(Command('stats'))
 async def cmd_stats(message: Message):
-    conn = sqlite3.connect('requests.db')
+    conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
-    cur.execute(f"SELECT title, count(title) FROM requests "
+    cur.execute(f"SELECT title, count(title) FROM answers "
                 f"WHERE userid = {message.from_user.id} "
                 f"GROUP BY title "
                 f"ORDER BY count(title) DESC;")
@@ -100,7 +99,8 @@ async def cmd_stats(message: Message):
 
 @router.message(Command('clearhistory'))
 async def cmd_clear_history(message: Message):
-    conn = sqlite3.connect('requests.db')
+    conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
-    cur.execute(f"DELETE FROM requests WHERE userid = {message.from_user.id};")
+    cur.execute(f"DELETE FROM queries WHERE userid = {message.from_user.id};")
+    cur.execute(f"DELETE FROM answers WHERE userid = {message.from_user.id};")
     conn.commit()

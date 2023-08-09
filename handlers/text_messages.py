@@ -4,7 +4,9 @@ import sqlite3
 from bs4 import BeautifulSoup
 from aiogram import Router
 from aiogram import F
-from aiogram.types import Message
+from aiogram.filters import Command
+from aiogram.utils.callback_answer import CallbackAnswer
+from aiogram.types import Message, InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup
 
 
 router = Router()
@@ -15,7 +17,7 @@ headers = {
       }
 
 
-def query_imdb(query):
+def query_imdb(query: str):
     url = 'https://www.imdb.com/find/?q=' + query.replace(' ', '%20').replace(',', '%2C').replace(':', '%3A')
     resp = requests.get(url, headers=headers)
     if resp.status_code == 200:
@@ -23,12 +25,15 @@ def query_imdb(query):
     else:
         raise Exception('Something wrong with imdb')
 
-    result = soup.find(class_='ipc-metadata-list-summary-item__t')
-    if result:
-        return 'https://www.imdb.com' + result.get('href')
+    movies = soup.find_all(class_='ipc-metadata-list-summary-item__t')
+    if movies:
+        result = []
+        for movie in movies:
+            result.append('https://www.imdb.com' + movie.get('href'))
+        return result
 
 
-def get_information_from_imdb(url):
+def get_information_from_imdb(url: str):
     information = {}
     resp = requests.get(url, headers=headers)
     if resp.status_code == 200:
@@ -47,8 +52,8 @@ def get_information_from_imdb(url):
                         break
                 ind += 1
             information['description'] = ' '.join(element.get('content').split()[ind + 1:])
-        # if element.get('property') == 'og:url':
-        #     information['url'] = element.get('content')
+        if element.get('property') == 'og:url':
+            information['url'] = element.get('content')
         if element.get('property') == 'og:title':
             information['title_and_year'] = element.get('content').split(' ⭐')[0]
             information['imdb_rating'] = (element.get('content').split('⭐ ')[1]).split(' |')[0]
@@ -64,29 +69,77 @@ def get_information_from_imdb(url):
     return information
 
 
+@router.message(Command('st'))
+async def cmd_start(message: Message):
+    big_button_1: InlineKeyboardButton = InlineKeyboardButton(
+        text='БОЛЬШАЯ КНОПКА 1',
+        callback_data='big_button_1_pressed')
+
+    big_button_2: InlineKeyboardButton = InlineKeyboardButton(
+        text='БОЛЬШАЯ КНОПКА 2',
+        callback_data='big_button_2_pressed')
+
+    # Создаем объект инлайн-клавиатуры
+    keyboard: InlineKeyboardMarkup = InlineKeyboardMarkup(
+        inline_keyboard=[[big_button_1],
+                         [big_button_2]])
+
+    await message.answer(
+        "Нажмите на кнопку, чтобы бот отправил число от 1 до 10",
+        reply_markup=keyboard
+    )
+
+
+@router.callback_query(F.data.startswith('movie_button_url='))
+async def send_random_value(callback: CallbackQuery):
+    url = callback.data[17:]
+    movie_info = get_information_from_imdb(url)
+
+    string_to_answer = f"<b>{movie_info['title_and_year']}</b>\n" \
+                       f"{movie_info['age_rating']} &#183; {movie_info['duration']} " \
+                       f"&#183; ⭐ {movie_info['imdb_rating']}/10\n" \
+                       f"Жанры: {movie_info['genres']}\n" \
+                       f"{movie_info['description'][:-1]}" \
+                       f"<a href='{movie_info['poster_url']}'>.</a>"
+
+    conn = sqlite3.connect('CinemaBot.db')
+    cur = conn.cursor()
+    request = (callback.from_user.id, movie_info['title_and_year'])
+    cur.execute("INSERT INTO answers VALUES(?, ?);", request)
+    conn.commit()
+
+    await callback.message.answer(string_to_answer, parse_mode="HTML")
+
+
 @router.message(F.text)
 async def movie_info(message: Message):
-    conn = sqlite3.connect('requests.db')
+    conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
-    url = query_imdb(message.text)
-    if not url:
+    urls = query_imdb(message.text)
+    if not urls:
         request = (message.from_user.id, 'фильм не найден', message.text)
         cur.execute("INSERT INTO requests VALUES(?, ?, ?);", request)
         conn.commit()
 
         await message.answer("Простите, но по этому запросу ничего не найдено.", parse_mode="HTML")
     else:
-        information = get_information_from_imdb(url)
-        string_to_answer = f"<b>{information['title_and_year']}</b>\n" \
-                           f"{information['age_rating']} &#183; {information['duration']} " \
-                           f"&#183; ⭐ {information['imdb_rating']}/10\n" \
-                           f"Жанры: {information['genres']}\n" \
-                           f"{information['description'][:-1]}" \
-                           f"<a href='{information['poster_url']}'>.</a>"
+        movies_info = []
+        for url in urls:
+            movies_info.append(get_information_from_imdb(url))
 
-        request = (message.from_user.id, information['title_and_year'], message.text)
-        cur.execute("INSERT INTO requests VALUES(?, ?, ?);", request)
+        buttons = []
+        for info in movies_info:
+            buttons.append(
+                [InlineKeyboardButton(
+                    text=info['title_and_year'],
+                    callback_data='movie_button_url=' + info['url'])]
+            )
+        keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
+
+        request = (message.from_user.id, message.text)
+        cur.execute("INSERT INTO queries VALUES(?, ?);", request)
         conn.commit()
 
-        await message.answer(string_to_answer, parse_mode="HTML")
+        await message.answer('По вашему запросу найдены следующие фильмы, пожалуйста, выберите интересующий вас:',
+                             parse_mode="HTML", reply_markup=keyboard)
