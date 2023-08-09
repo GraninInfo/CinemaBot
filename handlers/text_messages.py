@@ -4,8 +4,6 @@ import sqlite3
 from bs4 import BeautifulSoup
 from aiogram import Router
 from aiogram import F
-from aiogram.filters import Command
-from aiogram.utils.callback_answer import CallbackAnswer
 from aiogram.types import Message, InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup
 
 
@@ -67,27 +65,6 @@ def get_information_from_imdb(url: str):
             information['poster_url'] = element.get('content')
 
     return information
-
-
-@router.message(Command('st'))
-async def cmd_start(message: Message):
-    big_button_1: InlineKeyboardButton = InlineKeyboardButton(
-        text='БОЛЬШАЯ КНОПКА 1',
-        callback_data='big_button_1_pressed')
-
-    big_button_2: InlineKeyboardButton = InlineKeyboardButton(
-        text='БОЛЬШАЯ КНОПКА 2',
-        callback_data='big_button_2_pressed')
-
-    # Создаем объект инлайн-клавиатуры
-    keyboard: InlineKeyboardMarkup = InlineKeyboardMarkup(
-        inline_keyboard=[[big_button_1],
-                         [big_button_2]])
-
-    await message.answer(
-        "Нажмите на кнопку, чтобы бот отправил число от 1 до 10",
-        reply_markup=keyboard
-    )
 
 
 @router.callback_query(F.data.startswith('movie_button_url='))
