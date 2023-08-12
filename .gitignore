@@ -1,4 +1,5 @@
 config.py
+py_log.py
 *.pyc
 *.db
 .idea/

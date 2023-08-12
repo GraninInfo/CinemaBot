@@ -7,7 +7,7 @@ from handlers import commands, text_messages
 from config import BOT_TOKEN
 
 
-async def main():
+async def main() -> None:
     conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
     cur.execute('CREATE TABLE IF NOT EXISTS queries('
@@ -29,5 +29,5 @@ async def main():
     await dp.start_polling(bot)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     asyncio.run(main())

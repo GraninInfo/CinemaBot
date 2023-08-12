@@ -1,0 +1,635 @@
+2023-08-11 15:26:59,891 INFO Start polling
+2023-08-11 15:26:59,971 INFO Run polling for bot @railaggg_bot id=5781626567 - 'railaggg_test'
+2023-08-11 15:27:17,981 INFO Update id=575707847 is handled. Duration 10344 ms by bot id=5781626567
+2023-08-11 15:27:23,394 INFO Update id=575707848 is handled. Duration 1703 ms by bot id=5781626567
+2023-08-11 15:27:39,692 ERROR Error while parsing og:description from https://www.imdb.com/title/tt1260572/?ref_=fn_al_tt_5
+2023-08-11 15:27:40,037 INFO Update id=575707849 is handled. Duration 9343 ms by bot id=5781626567
+2023-08-11 15:27:45,813 INFO Update id=575707850 is handled. Duration 1422 ms by bot id=5781626567
+2023-08-11 15:28:10,337 ERROR Error while parsing og:title from https://www.imdb.com/title/tt27816975/?ref_=fn_al_tt_2
+2023-08-11 15:28:10,345 ERROR Error while parsing og:description from https://www.imdb.com/title/tt27816975/?ref_=fn_al_tt_2
+2023-08-11 15:28:15,921 INFO Update id=575707851 is handled. Duration 9889 ms by bot id=5781626567
+2023-08-11 15:28:23,081 INFO Update id=575707852 is handled. Duration 1686 ms by bot id=5781626567
+2023-08-11 15:28:42,246 ERROR Error while parsing og:description from https://www.imdb.com/title/tt22091270/?ref_=fn_al_tt_5
+2023-08-11 15:28:43,847 ERROR Error while parsing og:title from https://www.imdb.com/name/nm2303111/?ref_=fn_al_nm_1
+2023-08-11 15:28:43,847 ERROR Error while parsing og:description from https://www.imdb.com/name/nm2303111/?ref_=fn_al_nm_1
+2023-08-11 15:28:44,222 INFO Update id=575707853 is handled. Duration 13860 ms by bot id=5781626567
+2023-08-11 15:29:08,913 INFO Update id=575707854 is handled. Duration 1546 ms by bot id=5781626567
+2023-08-11 15:29:20,192 ERROR Error while parsing og:title from https://www.imdb.com/title/tt16366836/?ref_=fn_al_tt_3
+2023-08-11 15:29:20,192 ERROR Error while parsing og:description from https://www.imdb.com/title/tt16366836/?ref_=fn_al_tt_3
+2023-08-11 15:29:25,773 ERROR Error while parsing og:title from https://www.imdb.com/name/nm2874946/?ref_=fn_al_nm_1
+2023-08-11 15:29:25,773 ERROR Error while parsing og:description from https://www.imdb.com/name/nm2874946/?ref_=fn_al_nm_1
+2023-08-11 15:29:28,220 ERROR Error while parsing og:title from https://www.imdb.com/name/nm0725543/?ref_=fn_al_nm_2
+2023-08-11 15:29:28,220 ERROR Error while parsing og:description from https://www.imdb.com/name/nm0725543/?ref_=fn_al_nm_2
+2023-08-11 15:29:29,616 ERROR Error while parsing og:title from https://www.imdb.com/name/nm6431721/?ref_=fn_al_nm_3
+2023-08-11 15:29:29,616 ERROR Error while parsing og:description from https://www.imdb.com/name/nm6431721/?ref_=fn_al_nm_3
+2023-08-11 15:29:30,679 ERROR Error while parsing og:title from https://www.imdb.com/name/nm14725744/?ref_=fn_al_nm_4
+2023-08-11 15:29:30,679 ERROR Error while parsing og:description from https://www.imdb.com/name/nm14725744/?ref_=fn_al_nm_4
+2023-08-11 15:29:33,039 ERROR Error while parsing og:title from https://www.imdb.com/name/nm0751746/?ref_=fn_al_nm_5
+2023-08-11 15:29:33,039 ERROR Error while parsing og:description from https://www.imdb.com/name/nm0751746/?ref_=fn_al_nm_5
+2023-08-11 15:29:33,352 INFO Update id=575707855 is handled. Duration 19360 ms by bot id=5781626567
+2023-08-11 15:29:39,351 INFO Update id=575707856 is handled. Duration 1296 ms by bot id=5781626567
+2023-08-11 15:32:34,032 INFO Polling stopped
+2023-08-11 15:32:34,032 INFO Polling stopped for bot @railaggg_bot id=5781626567 - 'railaggg_test'
+2023-08-11 17:52:39,401 ERROR Cause exception while process update id=575707857 by bot id=5781626567
+NameError: name 'urls' is not defined
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 124, in movie_info
+    if not urls:
+NameError: name 'urls' is not defined
+2023-08-11 17:53:29,962 ERROR Cause exception while process update id=575707858 by bot id=5781626567
+TelegramBadRequest: Telegram server says - Bad Request: BUTTON_DATA_INVALID
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 144, in movie_info
+    await message.answer('По вашему запросу найдены следующие фильмы, пожалуйста, выберите интересующий вас:',
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\methods\base.py", line 82, in emit
+    return await bot(self)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\bot.py", line 431, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\base.py", line 257, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\aiohttp.py", line 170, in make_request
+    response = self.check_response(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: BUTTON_DATA_INVALID
+2023-08-11 17:54:20,231 ERROR Cause exception while process update id=575707859 by bot id=5781626567
+TelegramBadRequest: Telegram server says - Bad Request: BUTTON_DATA_INVALID
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 145, in movie_info
+    await message.answer('По вашему запросу найдены следующие фильмы, пожалуйста, выберите интересующий вас:',
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\methods\base.py", line 82, in emit
+    return await bot(self)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\bot.py", line 431, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\base.py", line 257, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\aiohttp.py", line 170, in make_request
+    response = self.check_response(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: BUTTON_DATA_INVALID
+2023-08-11 17:55:10,425 ERROR Cause exception while process update id=575707860 by bot id=5781626567
+TelegramBadRequest: Telegram server says - Bad Request: BUTTON_DATA_INVALID
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 145, in movie_info
+    await message.answer('По вашему запросу найдены следующие фильмы, пожалуйста, выберите интересующий вас:',
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\methods\base.py", line 82, in emit
+    return await bot(self)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\bot.py", line 431, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\base.py", line 257, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\aiohttp.py", line 170, in make_request
+    response = self.check_response(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\client\session\base.py", line 120, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: BUTTON_DATA_INVALID
+2023-08-11 18:02:11,778 ERROR Cause exception while process update id=575707867 by bot id=5781626567
+OperationalError: no such table: requests
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 127, in movie_info
+    cur.execute("INSERT INTO requests VALUES(?, ?, ?);", request)
+sqlite3.OperationalError: no such table: requests
+2023-08-11 18:03:02,888 ERROR Cause exception while process update id=575707868 by bot id=5781626567
+OperationalError: table queries has 2 columns but 3 values were supplied
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 127, in movie_info
+    cur.execute("INSERT INTO queries VALUES(?, ?, ?);", request)
+sqlite3.OperationalError: table queries has 2 columns but 3 values were supplied
+2023-08-11 18:09:21,564 ERROR Error while parsing og:description from https://www.imdb.com/title/tt0169154
+2023-08-11 18:09:21,564 ERROR Cause exception while process update id=575707878 by bot id=5781626567
+KeyError: 'age_rating'
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 104, in answer_to_query
+    f"{movie_info['age_rating']} &#183; {movie_info['duration']} " \
+KeyError: 'age_rating'
+2023-08-11 18:09:25,672 ERROR Error while parsing og:description from https://www.imdb.com/title/tt0169154
+2023-08-11 18:09:25,673 ERROR Cause exception while process update id=575707879 by bot id=5781626567
+KeyError: 'age_rating'
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 104, in answer_to_query
+    f"{movie_info['age_rating']} &#183; {movie_info['duration']} " \
+KeyError: 'age_rating'
+2023-08-11 18:09:45,255 ERROR Error while parsing og:description from https://www.imdb.com/title/tt0169154
+2023-08-11 18:09:45,256 ERROR Cause exception while process update id=575707880 by bot id=5781626567
+KeyError: 'age_rating'
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 104, in answer_to_query
+    f"{movie_info['age_rating']} &#183; {movie_info['duration']} " \
+KeyError: 'age_rating'
+2023-08-11 20:39:07,364 ERROR Cause exception while process update id=575707902 by bot id=5781626567
+TypeError: 'function' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 139, in answer_to_query
+    request = (callback.from_user.id, movie_info['title_and_year'])
+TypeError: 'function' object is not subscriptable
+2023-08-11 21:16:40,879 ERROR Cause exception while process update id=575707904 by bot id=5781626567
+TypeError: 'function' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 139, in answer_to_query
+    request = (callback.from_user.id, movie_info['title_and_year'])
+TypeError: 'function' object is not subscriptable
+2023-08-11 21:17:27,009 ERROR Cause exception while process update id=575707906 by bot id=5781626567
+TypeError: 'function' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 139, in answer_to_query
+    request = (callback.from_user.id, movie_info['title_and_year'])
+TypeError: 'function' object is not subscriptable
+2023-08-11 21:17:54,720 ERROR Cause exception while process update id=575707907 by bot id=5781626567
+TypeError: 'function' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 139, in answer_to_query
+    request = (callback.from_user.id, movie_info['title_and_year'])
+TypeError: 'function' object is not subscriptable
+2023-08-12 04:01:30,085 ERROR Cause exception while process update id=575707912 by bot id=5781626567
+TypeError: 'function' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 130, in answer_to_query
+    request = (callback.from_user.id, movie_info['title_and_year'])
+TypeError: 'function' object is not subscriptable
+2023-08-12 04:02:19,696 ERROR Cause exception while process update id=575707913 by bot id=5781626567
+TypeError: 'function' object is not subscriptable
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 130, in answer_to_query
+    request = (callback.from_user.id, movie_info['title_and_year'])
+TypeError: 'function' object is not subscriptable

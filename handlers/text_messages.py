@@ -1,10 +1,11 @@
 import requests
 import sqlite3
+import logging
 
 from bs4 import BeautifulSoup
 from aiogram import Router
 from aiogram import F
-from aiogram.types import Message, InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup
+from aiogram.types import Message, InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup, keyboard_button
 
 
 router = Router()
@@ -15,29 +16,68 @@ headers = {
       }
 
 
-def query_imdb(query: str):
+logging.basicConfig(level=logging.WARNING, filename='py_log.log',
+                    format='%(asctime)s %(levelname)s %(message)s')
+
+
+def string_from_information(info: dict[str, str]) -> str:
+    str_to_answer = f'<b>{info["title_and_year"]}</b>\n'
+
+    second_line: list[str] = []
+    if info['age_rating']:
+        second_line += [info['age_rating']]
+    if info['duration']:
+        second_line += [info['duration']]
+    if info['imdb_rating']:
+        second_line += ['⭐ ' + info['imdb_rating'] + '/10']
+    if second_line:
+        str_to_answer += ' &#183; '.join(second_line) + '\n'
+
+    if info['genres']:
+        str_to_answer += f'Жанры: {info["genres"]}\n'
+
+    if info['description']:
+        str_to_answer += f'{info["description"][:-1]}\n'
+
+    if info['poster_url']:
+        str_to_answer = str_to_answer[:-1] + f'<a href="{info["poster_url"]}">.</a>'
+
+    return str_to_answer
+
+
+def query_imdb(query: str) -> list[tuple[str, str]]:
     url = 'https://www.imdb.com/find/?q=' + query.replace(' ', '%20').replace(',', '%2C').replace(':', '%3A')
     resp = requests.get(url, headers=headers)
     if resp.status_code == 200:
         soup = BeautifulSoup(resp.content, "html.parser")
     else:
-        raise Exception('Something wrong with imdb')
+        logging.info('Error while requesting ' + url)
+        raise Exception('Something wrong with imdb or url')
 
     movies = soup.find_all(class_='ipc-metadata-list-summary-item__t')
     if movies:
-        result = []
+        result: list[tuple[str, str]] = []
         for movie in movies:
-            result.append('https://www.imdb.com' + movie.get('href'))
+            url_to_result = 'https://www.imdb.com' + movie.get('href').split('/?')[0]
+            if 'title' in url_to_result:
+                data = list(movie.parent.children)[1]
+                if len(list(data.children)) == 1:
+                    title_to_result = movie.text + ' · ' + list(data.children)[0].text
+                else:
+                    title_to_result = movie.text + ' · ' + list(data.children)[0].text + \
+                                      ' · ' + list(data.children)[1].text
+                result.append((url_to_result, title_to_result))
         return result
 
 
-def get_information_from_imdb(url: str):
-    information = {}
+def get_information_from_imdb(url: str) -> dict[str, str]:
+    information: dict[str, str] = {}
     resp = requests.get(url, headers=headers)
     if resp.status_code == 200:
         soup = BeautifulSoup(resp.content, "html.parser")
     else:
-        raise Exception('Something wrong with url or imdb')
+        logging.info('Error while requesting ' + url)
+        raise Exception('Something wrong with url or imdb or url')
 
     for element in soup.find_all('meta'):
         if element.get('name') == 'description':
@@ -49,16 +89,29 @@ def get_information_from_imdb(url: str):
                     if counter == 2:
                         break
                 ind += 1
-            information['description'] = ' '.join(element.get('content').split()[ind + 1:])
+            try:
+                information['description'] = ' '.join(element.get('content').split()[ind + 1:])
+            except LookupError:
+                logging.error('Error while parsing description from ' + url)
+
         if element.get('property') == 'og:url':
             information['url'] = element.get('content')
+
         if element.get('property') == 'og:title':
-            information['title_and_year'] = element.get('content').split(' ⭐')[0]
-            information['imdb_rating'] = (element.get('content').split('⭐ ')[1]).split(' |')[0]
-            information['genres'] = element.get('content').split('| ')[1]
+            try:
+                information['title_and_year'] = element.get('content').split(' ⭐')[0]
+                information['imdb_rating'] = (element.get('content').split('⭐ ')[1]).split(' |')[0]
+                information['genres'] = element.get('content').split('| ')[1]
+            except LookupError:
+                logging.error('Error while parsing og:title from ' + url)
+
         if element.get('property') == 'og:description':
-            information['duration'] = element.get('content').split(' | ')[0]
-            information['age_rating'] = element.get('content').split(' | ')[1]
+            try:
+                information['duration'] = element.get('content').split(' | ')[0]
+                information['age_rating'] = element.get('content').split(' | ')[1]
+            except LookupError:
+                logging.error('Error while parsing og:description from ' + url)
+
         if element.get('property') == 'og:type':
             information['type'] = element.get('content')
         if element.get('property') == 'og:image':
@@ -68,20 +121,14 @@ def get_information_from_imdb(url: str):
 
 
 @router.callback_query(F.data.startswith('movie_button_url='))
-async def send_random_value(callback: CallbackQuery):
+async def answer_to_query(callback: CallbackQuery):
     url = callback.data[17:]
-    movie_info = get_information_from_imdb(url)
-
-    string_to_answer = f"<b>{movie_info['title_and_year']}</b>\n" \
-                       f"{movie_info['age_rating']} &#183; {movie_info['duration']} " \
-                       f"&#183; ⭐ {movie_info['imdb_rating']}/10\n" \
-                       f"Жанры: {movie_info['genres']}\n" \
-                       f"{movie_info['description'][:-1]}" \
-                       f"<a href='{movie_info['poster_url']}'>.</a>"
+    info = get_information_from_imdb(url)
+    string_to_answer = string_from_information(info)
 
     conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
-    request = (callback.from_user.id, movie_info['title_and_year'])
+    request = (callback.from_user.id, info['title_and_year'])
     cur.execute("INSERT INTO answers VALUES(?, ?);", request)
     conn.commit()
 
@@ -89,28 +136,24 @@ async def send_random_value(callback: CallbackQuery):
 
 
 @router.message(F.text)
-async def movie_info(message: Message):
+async def get_movie_info(message: Message) -> None:
     conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
-    urls = query_imdb(message.text)
-    if not urls:
-        request = (message.from_user.id, 'фильм не найден', message.text)
-        cur.execute("INSERT INTO requests VALUES(?, ?, ?);", request)
+    urls_and_titles = query_imdb(message.text)
+    if not urls_and_titles:
+        request = (message.from_user.id, message.text)
+        cur.execute("INSERT INTO queries VALUES(?, ?);", request)
         conn.commit()
 
         await message.answer("Простите, но по этому запросу ничего не найдено.", parse_mode="HTML")
     else:
-        movies_info = []
-        for url in urls:
-            movies_info.append(get_information_from_imdb(url))
-
-        buttons = []
-        for info in movies_info:
+        buttons: list[keyboard_button] = []
+        for url, title in urls_and_titles:
             buttons.append(
                 [InlineKeyboardButton(
-                    text=info['title_and_year'],
-                    callback_data='movie_button_url=' + info['url'])]
+                    text=title,
+                    callback_data='movie_button_url=' + url)]
             )
         keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
 

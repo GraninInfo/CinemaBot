@@ -8,7 +8,7 @@ from aiogram.types import Message
 router = Router()
 
 
-def case_for_number(number: int):
+def case_for_number(number: int) -> str:
     if number == 1 or number > 5:
         return 'раз'
     else:
@@ -16,7 +16,7 @@ def case_for_number(number: int):
 
 
 @router.message(Command('start'))
-async def cmd_start(message: Message):
+async def cmd_start(message: Message) -> None:
     await message.answer(
         "Привет, я CinemaBot. Я могу рассказать тебе о фильмах, а также дать ссылку для просмотра. "
         "Тебе нужно только написать мне название интересующего тебя фильма или сериала.\n"
@@ -25,7 +25,7 @@ async def cmd_start(message: Message):
 
 
 @router.message(Command('help'))
-async def cmd_start(message: Message):
+async def cmd_start(message: Message) -> None:
     await message.answer(
         'Доступные команды:\n'
         '/help -- показать список возможных взаимодействий с ботом;\n'
@@ -39,7 +39,7 @@ async def cmd_start(message: Message):
 
 
 @router.message(Command('history'))
-async def cmd_history(message: Message):
+async def cmd_history(message: Message) -> None:
     conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
@@ -59,7 +59,7 @@ async def cmd_history(message: Message):
 
 
 @router.message(Command('allhistory'))
-async def cmd_all_history(message: Message):
+async def cmd_all_history(message: Message) -> None:
     conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
@@ -78,7 +78,7 @@ async def cmd_all_history(message: Message):
 
 
 @router.message(Command('stats'))
-async def cmd_stats(message: Message):
+async def cmd_stats(message: Message) -> None:
     conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
 
@@ -98,7 +98,7 @@ async def cmd_stats(message: Message):
 
 
 @router.message(Command('clearhistory'))
-async def cmd_clear_history(message: Message):
+async def cmd_clear_history(message: Message) -> None:
     conn = sqlite3.connect('CinemaBot.db')
     cur = conn.cursor()
     cur.execute(f"DELETE FROM queries WHERE userid = {message.from_user.id};")
