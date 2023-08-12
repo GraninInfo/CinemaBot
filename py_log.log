@@ -633,3 +633,41 @@ Traceback (most recent call last):
   File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 130, in answer_to_query
     request = (callback.from_user.id, movie_info['title_and_year'])
 TypeError: 'function' object is not subscriptable
+2023-08-12 16:44:23,064 ERROR Cause exception while process update id=575707920 by bot id=5781626567
+TypeError: 'coroutine' object is not iterable
+Traceback (most recent call last):
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 307, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 157, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\fsm\middleware.py", line 39, in __call__
+    return await handler(event, data)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\dispatcher.py", line 274, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 135, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 116, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 111, in _wrapped
+    return await self._propagate_event(
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\router.py", line 128, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\telegram.py", line 124, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "C:\Users\Grani\AppData\Roaming\Python\Python310\site-packages\aiogram\dispatcher\event\handler.py", line 42, in call
+    return await wrapped()
+  File "C:\Users\Grani\OneDrive\Рабочий стол\bot\CinemaBot\handlers\text_messages.py", line 155, in get_movie_info
+    for url, title in urls_and_titles:
+TypeError: 'coroutine' object is not iterable
